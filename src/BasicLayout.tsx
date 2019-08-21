@@ -58,9 +58,9 @@ const query = {
 
 export interface BasicLayoutProps
   extends Partial<RouterTypes<Route>>,
-    SiderMenuProps,
-    HeaderViewProps,
-    Partial<Settings> {
+  SiderMenuProps,
+  HeaderViewProps,
+  Partial<Settings> {
   logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
   locale?: localeType;
   onCollapse?: (collapsed: boolean) => void;
@@ -267,53 +267,62 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         {params => (
           <div className={classNames(params, 'ant-design-pro', 'basicLayout')}>
             <Layout>
-              {renderSiderMenu({
+              {headerRender({
                 ...defaultProps,
                 menuData,
-                onCollapse,
                 isMobile,
-                theme: navTheme,
                 collapsed,
+                onCollapse,
               })}
-              <Layout
-                style={{
-                  paddingLeft: getPaddingLeft(
-                    !!hasLeftPadding,
-                    collapsed,
-                    siderWidth,
-                  ),
-                  minHeight: '100vh',
-                }}
-              >
-                {headerRender({
+              <Layout>
+                {renderSiderMenu({
                   ...defaultProps,
                   menuData,
-                  isMobile,
-                  collapsed,
                   onCollapse,
-                })}
-                <Content
-                  className="ant-pro-basicLayout-content"
-                  style={!fixedHeader ? { paddingTop: 0 } : {}}
-                >
-                  <RouteContext.Provider
-                    value={{
-                      breadcrumb: breadcrumbProps,
-                      ...props,
-                      menuData,
-                      isMobile,
-                      collapsed,
-                      title: pageTitle.split('-')[0].trim(),
-                    }}
-                  >
-                    {children}
-                  </RouteContext.Provider>
-                </Content>
-                {footerRender({
                   isMobile,
+                  theme: navTheme,
                   collapsed,
-                  ...defaultProps,
                 })}
+                <Layout
+                  style={{
+                    paddingLeft: getPaddingLeft(
+                      !!hasLeftPadding,
+                      collapsed,
+                      siderWidth,
+                    ),
+                    // minHeight: '100vh',
+                  }}
+                >
+                  {/* {headerRender({
+                    ...defaultProps,
+                    menuData,
+                    isMobile,
+                    collapsed,
+                    onCollapse,
+                  })} */}
+                  <Content
+                    className="ant-pro-basicLayout-content"
+                    style={!fixedHeader ? { paddingTop: 0 } : {}}
+                  >
+                    <RouteContext.Provider
+                      value={{
+                        breadcrumb: breadcrumbProps,
+                        ...props,
+                        menuData,
+                        isMobile,
+                        collapsed,
+                        title: pageTitle.split('-')[0].trim(),
+                      }}
+                    >
+                      {children}
+                    </RouteContext.Provider>
+                  </Content>
+                  {footerRender({
+                    isMobile,
+                    collapsed,
+                    ...defaultProps,
+                  })}
+                </Layout>
               </Layout>
             </Layout>
           </div>
