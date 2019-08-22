@@ -41,6 +41,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         // collapsed={collapsed}
         collapsed={collapsed}
         onCollapse={handleMenuCollapse}
+        // defaultCollapsed={false}
         menuItemRender={(menuItemProps, defaultDom) =>
           menuItemProps.isUrl ? (
             defaultDom
@@ -51,7 +52,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         rightContentRender={rightProps => (
           <RightContent {...rightProps} {...settings} />
         )}
-        // onMenuHeaderClick={() => history.push('/')}
+        // onMenuHeaderClick={() => { handleMenuCollapse(!collapsed) }}
         onMenuHeaderClick={() => { handleMenuCollapse(!collapsed) }}
         {...props}
         {...settings}

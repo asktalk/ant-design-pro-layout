@@ -6,9 +6,7 @@ import './index.less';
 import { WithFalse } from '../typings';
 import BaseMenu, { BaseMenuProps } from './BaseMenu';
 import { getDefaultCollapsedSubMenus } from './SiderMenuUtils';
-//sf
-// import debounce from 'lodash/debounce';
-// import { isBrowser } from '../utils/utils';
+
 
 const { Sider } = Layout;
 
@@ -53,6 +51,8 @@ export interface SiderMenuProps
   extends Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>> {
   logo?: React.ReactNode;
   siderWidth?: number;
+  collapsedWidth?: number;
+  defaultCollapsed?: boolean;
   menuHeaderRender?: WithFalse<
     (logo: React.ReactNode, title: React.ReactNode) => React.ReactNode
   >;
@@ -137,21 +137,6 @@ export default class SiderMenu extends Component<
     }
   };
 
-  // //sf
-  // triggerResizeEvent = debounce(() => {
-  //   const event = document.createEvent('HTMLEvents');
-  //   event.initEvent('resize', true, false);
-  //   if (isBrowser()) {
-  //     window.dispatchEvent(event);
-  //   }
-  // });
-  // toggle = () => {
-  //   const { collapsed, onCollapse } = this.props;
-  //   if (onCollapse) onCollapse(!collapsed);
-  //   // this.triggerResizeEvent();
-  // };
-
-
   render(): React.ReactNode {
     const {
       collapsed,
@@ -160,6 +145,7 @@ export default class SiderMenu extends Component<
       theme,
       siderWidth = 256,
       collapsedWidth = 60,
+      defaultCollapsed,
       isMobile,
       layout,
       logo,
@@ -196,6 +182,7 @@ export default class SiderMenu extends Component<
         }}
         width={siderWidth}
         collapsedWidth={collapsedWidth}
+        // defaultCollapsed={defaultCollapsed}
         theme={theme}
         className={siderClassName}
       >
