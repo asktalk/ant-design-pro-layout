@@ -106,6 +106,11 @@ export default (
   formatMessage?: (message: MessageDescriptor) => string,
   menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[],
 ) => {
+  console.log("================= router menu：");
+  console.log(routes);
+  console.log(menu);
+  console.log(formatMessage);
+  console.log(menuDataRender);
   let originalMenuData = memoizeOneFormatter({
     data: routes,
     formatMessage,

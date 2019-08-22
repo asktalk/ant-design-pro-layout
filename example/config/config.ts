@@ -53,41 +53,54 @@ export default {
         {
           path: '/',
           name: 'welcome',
-          icon: 'smile',
+          icon: 'edit',
           component: './Welcome',
-          routes: [
-            {
-              path: '/welcome',
-              name: 'one',
-              component: './Welcome',
-              routes: [
-                {
-                  path: '/welcome/welcome',
-                  name: 'two',
-                  icon: 'smile',
-                  component: './Welcome',
-                },
-                {
-                  path: '/welcome/welcome2',
-                  name: 'two2',
-                  icon: 'smile',
-                  component: './Welcome',
-                },
-                {
-                  path:
-                    'https://github.com/ant-design/ant-design-pro-layout/issues',
-                  name: 'site',
-                  icon: 'smile',
-                  target: '_blank',
-                  component: './Welcome',
-                },
-              ],
-            },
-          ],
+          // routes: [
+          //   {
+          //     path: '/welcome',
+          //     name: 'one',
+          //     component: './Welcome',
+          //     routes: [
+          //       {
+          //         path: '/welcome/welcome',
+          //         name: '功能1',
+          //         icon: 'edit',
+          //         component: './Welcome',
+          //       },
+          //       {
+          //         path: '/welcome/welcome2',
+          //         name: '功能2',
+          //         icon: 'appstore',
+          //         component: './Welcome',
+          //       },
+          //       {
+          //         path:
+          //           'https://github.com/ant-design/ant-design-pro-layout/issues',
+          //         name: '功能3',
+          //         icon: 'smile',
+          //         target: '_blank',
+          //         component: './Welcome',
+          //       },
+          //     ],
+          //   },
+          // ],
+        },
+        {
+          path: '/welcome/welcome',
+          name: '功能1',
+          icon: 'edit',
+          component: './Welcome',
+        },
+        {
+          path: '/welcome/welcome2',
+          name: '功能2',
+          icon: 'appstore',
+          component: './Welcome',
         },
         {
           path: 'single',
           name: 'Single',
+          icon: 'contacts',
           component: './Welcome',
         },
       ],

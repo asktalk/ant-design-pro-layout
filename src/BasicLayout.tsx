@@ -24,6 +24,7 @@ import { BaseMenuProps } from './SiderMenu/BaseMenu';
 import Footer from './Footer';
 import RouteContext from './RouteContext';
 import SiderMenu from './SiderMenu';
+import SiderTree from './SiderTree';
 import { SiderMenuProps } from './SiderMenu/SiderMenu';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import getMenuData from './utils/getMenuData';
@@ -111,6 +112,22 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
   }
 
   return <SiderMenu {...props} />;
+};
+
+//sf
+const renderSiderTree = (props: BasicLayoutProps): React.ReactNode => {
+  const { layout, isMobile, menuRender } = props;
+  if (props.menuRender === false) {
+    return null;
+  }
+  if (layout === 'topmenu' && !isMobile) {
+    return null;
+  }
+  if (menuRender) {
+    return menuRender(props, <SiderTree {...props} />);
+  }
+
+  return <SiderTree {...props} />;
 };
 
 const defaultPageTitleRender = (
@@ -283,6 +300,14 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                   theme: navTheme,
                   collapsed,
                 })}
+                {/* {renderSiderTree({
+                  ...defaultProps,
+                  menuData,
+                  onCollapse,
+                  isMobile,
+                  theme: navTheme,
+                  collapsed,
+                })} */}
                 <Layout
                   style={{
                     paddingLeft: getPaddingLeft(

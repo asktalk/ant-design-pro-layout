@@ -6,9 +6,6 @@ import './index.less';
 import { WithFalse } from '../typings';
 import BaseMenu, { BaseMenuProps } from './BaseMenu';
 import { getDefaultCollapsedSubMenus } from './SiderMenuUtils';
-//sf
-import debounce from 'lodash/debounce';
-import { isBrowser } from '../utils/utils';
 
 const { Sider } = Layout;
 
@@ -27,7 +24,7 @@ export const defaultRenderLogo = (logo: React.ReactNode): React.ReactNode => {
 export const defaultRenderLogoAndTitle = (
   logo: React.ReactNode,
   title: React.ReactNode,
-  menuHeaderRender: SiderMenuProps['menuHeaderRender'],
+  menuHeaderRender: SiderTreeProps['menuHeaderRender'],
 ): React.ReactNode => {
   if (menuHeaderRender === false) {
     return null;
@@ -39,17 +36,14 @@ export const defaultRenderLogoAndTitle = (
     return menuHeaderRender(logoDom, titleDom);
   }
   return (
-    //sf
-    // <a href="/">
-    <>
+    <a href="/">
       {logoDom}
       {titleDom}
-    </>
-    // </a>
+    </a>
   );
 };
 
-export interface SiderMenuProps
+export interface SiderTreeProps
   extends Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>> {
   logo?: React.ReactNode;
   siderWidth?: number;
@@ -65,19 +59,19 @@ interface SiderMenuState {
   flatMenuKeysLen?: number;
 }
 
-export default class SiderMenu extends Component<
-  SiderMenuProps,
+export default class SiderTree extends Component<
+  SiderTreeProps,
   SiderMenuState
   > {
-  static defaultProps: Partial<SiderMenuProps> = {
+  static defaultProps: Partial<SiderTreeProps> = {
     flatMenuKeys: [],
     isMobile: false,
-    collapsed: true,
+    collapsed: false,
     menuData: [],
   };
 
   static getDerivedStateFromProps(
-    props: SiderMenuProps,
+    props: SiderTreeProps,
     state: SiderMenuState,
   ): SiderMenuState | null {
     const { pathname, flatMenuKeysLen } = state;
@@ -95,7 +89,7 @@ export default class SiderMenu extends Component<
     return null;
   }
 
-  constructor(props: SiderMenuProps) {
+  constructor(props: SiderTreeProps) {
     super(props);
     this.state = {
       openKeys: getDefaultCollapsedSubMenus(props),
@@ -137,21 +131,6 @@ export default class SiderMenu extends Component<
     }
   };
 
-  // //sf
-  // triggerResizeEvent = debounce(() => {
-  //   const event = document.createEvent('HTMLEvents');
-  //   event.initEvent('resize', true, false);
-  //   if (isBrowser()) {
-  //     window.dispatchEvent(event);
-  //   }
-  // });
-  // toggle = () => {
-  //   const { collapsed, onCollapse } = this.props;
-  //   if (onCollapse) onCollapse(!collapsed);
-  //   // this.triggerResizeEvent();
-  // };
-
-
   render(): React.ReactNode {
     const {
       collapsed,
@@ -183,7 +162,6 @@ export default class SiderMenu extends Component<
       <Sider
         collapsible
         trigger={null}
-        // collapsed={collapsed}
         collapsed={collapsed}
         breakpoint="lg"
         onCollapse={collapse => {
@@ -197,18 +175,17 @@ export default class SiderMenu extends Component<
         theme={theme}
         className={siderClassName}
       >
-        <div
+        {/* <div
           className="ant-pro-sider-menu-logo"
           onClick={onMenuHeaderClick}
-          // onClick={alert("sadfsafsafd")}
-
           id="logo"
         >
           {defaultRenderLogoAndTitle(logo, title, renderLogoAndTitle)}
-        </div>
+        </div> */}
+        dsafs
         <BaseMenu
           {...this.props}
-          mode="vertical"
+          mode="inline"
           handleOpenChange={this.handleOpenChange}
           onOpenChange={this.handleOpenChange}
           style={{ padding: '16px 0', width: '100%' }}
