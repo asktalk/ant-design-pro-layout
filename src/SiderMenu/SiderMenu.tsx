@@ -7,8 +7,8 @@ import { WithFalse } from '../typings';
 import BaseMenu, { BaseMenuProps } from './BaseMenu';
 import { getDefaultCollapsedSubMenus } from './SiderMenuUtils';
 //sf
-import debounce from 'lodash/debounce';
-import { isBrowser } from '../utils/utils';
+// import debounce from 'lodash/debounce';
+// import { isBrowser } from '../utils/utils';
 
 const { Sider } = Layout;
 
@@ -185,7 +185,7 @@ export default class SiderMenu extends Component<
         collapsible
         trigger={null}
         // collapsed={collapsed}
-        collapsed={collapsed}
+        collapsed={!collapsed}
         breakpoint="lg"
         onCollapse={collapse => {
           if (firstMount || !isMobile) {

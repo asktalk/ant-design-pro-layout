@@ -10,7 +10,7 @@ import ProLayout, {
   Settings,
   SettingDrawer,
   PageHeaderWrapper,
-} from '../../../src/index';
+} from '../../../src/index'; ``
 import React, { useState } from 'react';
 
 import Link from 'umi/link';
