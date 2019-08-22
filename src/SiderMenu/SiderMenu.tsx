@@ -159,6 +159,7 @@ export default class SiderMenu extends Component<
       onCollapse,
       theme,
       siderWidth = 256,
+      collapsedWidth = 60,
       isMobile,
       layout,
       logo,
@@ -194,14 +195,13 @@ export default class SiderMenu extends Component<
           }
         }}
         width={siderWidth}
+        collapsedWidth={collapsedWidth}
         theme={theme}
         className={siderClassName}
       >
         <div
           className="ant-pro-sider-menu-logo"
           onClick={onMenuHeaderClick}
-          // onClick={alert("sadfsafsafd")}
-
           id="logo"
         >
           {defaultRenderLogoAndTitle(logo, title, renderLogoAndTitle)}

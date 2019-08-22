@@ -31,13 +31,15 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const [collapsed, handleMenuCollapse] = useState<boolean>(true);
+  // handleMenuCollapse(false);  //error
+  console.log("----collapsed:" + collapsed);
   const [settings, setSettings] = useState<Partial<Settings>>({});
   return (
     <>
       <ProLayout
         logo={logo}
         // collapsed={collapsed}
-        collapsed={collapsed}
+        collapsed={true}
         onCollapse={handleMenuCollapse}
         menuItemRender={(menuItemProps, defaultDom) =>
           menuItemProps.isUrl ? (

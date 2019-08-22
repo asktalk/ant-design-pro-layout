@@ -3,7 +3,10 @@
     "outDir": "build/dist",
     "module": "esnext",
     "target": "esnext",
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "sourceMap": true,
     "baseUrl": ".",
     "jsx": "react",
@@ -15,7 +18,8 @@
     "noUnusedLocals": true,
     "experimentalDecorators": true,
     "strict": true,
-    "declaration": true
+    "declaration": true,
+    "noImplicitAny": false, // 是否在表达式和声明上有隐含的any类型时报错
   },
   "exclude": [
     "node_modules",
