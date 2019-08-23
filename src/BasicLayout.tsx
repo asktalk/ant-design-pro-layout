@@ -24,7 +24,7 @@ import { BaseMenuProps } from './SiderMenu/BaseMenu';
 import Footer from './Footer';
 import RouteContext from './RouteContext';
 import SiderMenu from './SiderMenu';
-// import SiderTree from './SiderTree';
+import LeftTree from './LeftTree';
 import { SiderMenuProps } from './SiderMenu/SiderMenu';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import getMenuData from './utils/getMenuData';
@@ -115,20 +115,13 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
 };
 
 //sf
-// const renderSiderTree = (props: BasicLayoutProps): React.ReactNode => {
-//   const { layout, isMobile, menuRender } = props;
-//   if (props.menuRender === false) {
-//     return null;
-//   }
-//   if (layout === 'topmenu' && !isMobile) {
-//     return null;
-//   }
-//   if (menuRender) {
-//     return menuRender(props, <SiderTree {...props} />);
-//   }
-
-//   return <SiderTree {...props} />;
-// };
+const renderLeftTree = (props: BasicLayoutProps): React.ReactNode => {
+  // const { layout, isMobile, menuRender } = props;
+  if (props.menuRender === false) {
+    return null;
+  }
+  return <LeftTree {...props} />;
+};
 
 const defaultPageTitleRender = (
   pageProps: GetPageTitleProps,
@@ -291,23 +284,25 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                 collapsed,
                 onCollapse,
               })}
-              <Layout>
-                {renderSiderMenu({
-                  ...defaultProps,
-                  menuData,
-                  onCollapse,
-                  isMobile,
-                  theme: navTheme,
-                  collapsed,
-                })}
-                {/* {renderSiderTree({
-                  ...defaultProps,
-                  menuData,
-                  onCollapse,
-                  isMobile,
-                  theme: navTheme,
-                  collapsed,
-                })} */}
+              <div className='container'>
+                <Layout>
+                  {renderSiderMenu({
+                    ...defaultProps,
+                    menuData,
+                    onCollapse,
+                    isMobile,
+                    theme: navTheme,
+                    collapsed,
+                  })}
+                  {renderLeftTree({
+                    ...defaultProps,
+                    menuData,
+                    onCollapse,
+                    isMobile,
+                    theme: navTheme,
+                    collapsed,
+                  })}
+                </Layout>
                 <Layout
                   style={{
                     paddingLeft: getPaddingLeft(
@@ -318,13 +313,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                     // minHeight: '100vh',
                   }}
                 >
-                  {/* {headerRender({
-                    ...defaultProps,
-                    menuData,
-                    isMobile,
-                    collapsed,
-                    onCollapse,
-                  })} */}
                   <Content
                     className="ant-pro-basicLayout-content"
                     style={!fixedHeader ? { paddingTop: 0 } : {}}
@@ -348,7 +336,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                     ...defaultProps,
                   })}
                 </Layout>
-              </Layout>
+              </div>
             </Layout>
           </div>
         )}

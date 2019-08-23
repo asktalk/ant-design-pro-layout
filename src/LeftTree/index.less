@@ -1,0 +1,83 @@
+@import '~antd/es/style/themes/default.less';
+
+.ant-pro-left-tree {
+
+  // -webkit-box-flex: 1;
+  // -webkit-flex: 1 1 auto;
+  // -ms-flex: 1 1 auto;
+  // flex: 1 1 auto;
+  // overflow: hidden;
+  border-right: 4px solid rgb(0, 0, 0);
+  width: 260px;
+  // background-color: #1e202d;
+  // color: white;
+}
+
+.module-header {
+  display: flex;
+  height: 42px;
+  line-height: 42px;
+  background-color: rgb(192, 190, 189);
+
+  .module-name {
+    color: #05060e;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: 15px;
+    font-weight: 700;
+    padding-left: 10px;
+    vertical-align: middle;
+  }
+
+  .icon-list {
+    //   position: absolute;
+    //   right: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    padding-right: 10px;
+  }
+}
+
+.module-search {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  // justify-content: center;
+  justify-content: flex-start;
+  height: 42px;
+  // line-height: 28px;
+  padding: 5px 10px 5px 10px;
+}
+
+.arrow-left {
+  // width: 50px;
+  // height: 100px;
+  // background-color: #cb18f8;
+  // border-radius: 50px 0 0 50px;
+  // /* 左上、右上、右下、左下 */
+
+  position: absolute;
+  margin-right: 4px;
+  background-color: #545872;
+  width: 18px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  top: 50%;
+  right: 0;
+  margin-top: -20px;
+  z-index: 50;
+  opacity: .3;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 20px 0 0 20px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+}
