@@ -285,7 +285,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                 onCollapse,
               })}
               <div className='container'>
-                <Layout>
+                <Layout
+                  style={{
+                    flex: 'none',
+                  }}>
                   {renderSiderMenu({
                     ...defaultProps,
                     menuData,
@@ -310,6 +313,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                       collapsed,
                       siderWidth,
                     ),
+                    flex: 1,
                     // minHeight: '100vh',
                   }}
                 >
