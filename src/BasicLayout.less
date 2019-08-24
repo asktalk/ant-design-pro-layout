@@ -1,6 +1,8 @@
 @import '~antd/es/style/themes/default.less';
 
 @basicLayout-prefix-cls: ~'@{ant-prefix}-pro-basicLayout-content';
+@keep-content-background-color:rgb(30, 30, 30);
+@keep-sidebar-background-color:rgb(45, 45, 45);
 
 .@{basicLayout-prefix-cls} {
   margin: 24px;
@@ -11,8 +13,47 @@
   .ant-layout {
     transition: all 0.2s;
   }
+
+  .workbech-sidebar{
+    color: #cccccc;
+    border-right: 1px solid rgb(37, 37, 38);
+    background-color: rgb(45, 45, 45);
+  }
+  .workbech-content{
+    // border-right: 1px solid rgb(37, 37, 38);
+    background-color: rgb(30, 30, 30);
+  }
+
+  .ant-menu-dark, .ant-menu-dark .ant-menu-sub {
+    color: rgba(255, 255, 255, 0.65);
+    background: rgb(45, 45, 45);
 }
 
-.contariner{
+.ant-layout-sider {
+    // position: relative;
+    // min-width: 0;
+    background: rgb(45, 45, 45);
+}
+.ant-pro-sider-menu-logo {
+  background: rgb(45, 45, 45);
+}
+.ant-pro-sider-menu-sider{
+  min-height: 200px;
+}
+}
 
+
+.keep-page{
+    position: absolute;
+    display: flex;
+    top: 50px;
+    left: 0px;
+    bottom: 0px;
+    // height: calc(100% - 50px);
+    // height: 100%;
+    width: 100%;
+    background-color: @keep-content-background-color;
+    z-index: 995;
+    padding: 0px 0px;
+    overflow: auto;
 }

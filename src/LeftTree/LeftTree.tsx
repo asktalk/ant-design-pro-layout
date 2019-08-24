@@ -28,13 +28,13 @@ const renderModuleHeader = (props: LeftTreeProps): React.ReactNode => {
   const { title } = props;
   return (
     <div
-      className='module-header'>
+      className='module-header workbech-sidebar'>
       <span className='module-name'>标题</span>
       <span className='icon-list'>
-        <span><Icon type="team" style={{ fontSize: '20px', color: '#08c', padding: '0px 10px 0px 0px' }} /></span>
-        <span><Icon type="team" style={{ fontSize: '20px', color: '#08c', padding: '0px 10px 0px 0px' }} /></span>
-        <span><Icon type="team" style={{ fontSize: '20px', color: '#08c', padding: '0px 10px 0px 0px' }} /></span>
-        <span><Icon type="team" style={{ fontSize: '20px', color: '#08c', padding: '0px 10px 0px 0px' }} /></span>
+        <span><Icon type="team" style={{ fontSize: '20px', padding: '0px 10px 0px 0px' }} /></span>
+        <span><Icon type="team" style={{ fontSize: '20px', padding: '0px 10px 0px 0px' }} /></span>
+        <span><Icon type="team" style={{ fontSize: '20px', padding: '0px 10px 0px 0px' }} /></span>
+        <span><Icon type="team" style={{ fontSize: '20px', padding: '0px 10px 0px 0px' }} /></span>
       </span>
       {/* <span className='team'>dsfafd</span> */}
     </div>);
@@ -86,14 +86,15 @@ export default class SiderTree extends Component<
 
     return (
       <>
-        <div className={treeClassName}>
+        <div className='ant-pro-left-tree workbech-content'>
           {renderModuleHeader({ title })}
           {renderModuleSearch({ title })}
           <Tree
             showIcon
             defaultExpandAll
             defaultSelectedKeys={['0-0-0']}
-            switcherIcon={<Icon type="down" />}
+            switcherIcon={<Icon type="down" />
+            }
           >
             <TreeNode icon={<Icon type="smile-o" />} title="parent 1" key="0-0">
               <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-0" />

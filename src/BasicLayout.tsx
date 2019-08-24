@@ -284,62 +284,64 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                 collapsed,
                 onCollapse,
               })}
-              <div className='container'>
-                <Layout
-                  style={{
-                    flex: 'none',
-                  }}>
-                  {renderSiderMenu({
-                    ...defaultProps,
-                    menuData,
-                    onCollapse,
-                    isMobile,
-                    theme: navTheme,
-                    collapsed,
-                  })}
-                  {renderLeftTree({
-                    ...defaultProps,
-                    menuData,
-                    onCollapse,
-                    isMobile,
-                    theme: navTheme,
-                    collapsed,
-                  })}
-                </Layout>
-                <Layout
-                  style={{
-                    paddingLeft: getPaddingLeft(
-                      !!hasLeftPadding,
+              <div className='keep-page'>
+                <div className='container'>
+                  <Layout
+                    style={{
+                      flex: 'none',
+                    }}>
+                    {renderSiderMenu({
+                      ...defaultProps,
+                      menuData,
+                      onCollapse,
+                      isMobile,
+                      theme: navTheme,
                       collapsed,
-                      siderWidth,
-                    ),
-                    flex: 1,
-                    // minHeight: '100vh',
-                  }}
-                >
-                  <Content
-                    className="ant-pro-basicLayout-content"
-                    style={!fixedHeader ? { paddingTop: 0 } : {}}
-                  >
-                    <RouteContext.Provider
-                      value={{
-                        breadcrumb: breadcrumbProps,
-                        ...props,
-                        menuData,
-                        isMobile,
+                    })}
+                    {renderLeftTree({
+                      ...defaultProps,
+                      menuData,
+                      onCollapse,
+                      isMobile,
+                      theme: navTheme,
+                      collapsed,
+                    })}
+                  </Layout>
+                  <Layout
+                    style={{
+                      paddingLeft: getPaddingLeft(
+                        !!hasLeftPadding,
                         collapsed,
-                        title: pageTitle.split('-')[0].trim(),
-                      }}
+                        siderWidth,
+                      ),
+                      flex: 1,
+                      // minHeight: '100vh',
+                    }}
+                  >
+                    <Content
+                      className="ant-pro-basicLayout-content"
+                      style={!fixedHeader ? { paddingTop: 0 } : {}}
                     >
-                      {children}
-                    </RouteContext.Provider>
-                  </Content>
-                  {footerRender({
-                    isMobile,
-                    collapsed,
-                    ...defaultProps,
-                  })}
-                </Layout>
+                      <RouteContext.Provider
+                        value={{
+                          breadcrumb: breadcrumbProps,
+                          ...props,
+                          menuData,
+                          isMobile,
+                          collapsed,
+                          title: pageTitle.split('-')[0].trim(),
+                        }}
+                      >
+                        {children}
+                      </RouteContext.Provider>
+                    </Content>
+                    {footerRender({
+                      isMobile,
+                      collapsed,
+                      ...defaultProps,
+                    })}
+                  </Layout>
+                </div>
               </div>
             </Layout>
           </div>
