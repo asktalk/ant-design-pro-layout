@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-22 20:58:42
+ * @LastEditTime: 2019-08-25 23:03:15
+ * @LastEditors: Please set LastEditors
+ */
 import isEqual from 'lodash/isEqual';
 import memoizeOne from 'memoize-one';
 import { MenuDataItem, Route, MessageDescriptor } from '../typings';
@@ -107,10 +114,10 @@ export default (
   menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[],
 ) => {
   console.log("================= router menu：");
-  console.log(routes);
-  console.log(menu);
-  console.log(formatMessage);
-  console.log(menuDataRender);
+  // console.log(routes);
+  // console.log(menu);
+  // console.log(formatMessage);
+  // console.log(menuDataRender);
   let originalMenuData = memoizeOneFormatter({
     data: routes,
     formatMessage,
