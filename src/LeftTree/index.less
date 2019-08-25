@@ -7,6 +7,7 @@
   // -ms-flex: 1 1 auto;
   // flex: 1 1 auto;
   // overflow: hidden;
+  position: relative;
   border-right: 4px solid rgb(0, 0, 0);
   width: 260px;
   // background-color: #1e202d;
@@ -66,15 +67,9 @@
 }
 
 .arrow-left {
-  // width: 50px;
-  // height: 100px;
-  // background-color: #cb18f8;
-  // border-radius: 50px 0 0 50px;
-  // /* 左上、右上、右下、左下 */
-
-  // position: absolute;
+  position: absolute;
   display: flex;
-  margin-right: 4px;
+  margin-right: 0px;
   background-color: #545872;
   width: 18px;
   height: 40px;
@@ -89,6 +84,20 @@
   font-size: 12px;
   border-radius: 20px 0 0 20px;
   cursor: pointer;
+  padding:0 0;
+
+  .arrow{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    font-size: '16px';
+    color: '#fff';
+    padding: '0px 10px 0px 0px';
+  }
 }
 
 .container {

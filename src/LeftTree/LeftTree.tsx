@@ -56,7 +56,7 @@ const renderModuleSearch = (props: LeftTreeProps): React.ReactNode => {
 const renderArrowLeft = (props: LeftTreeProps): React.ReactNode => {
   return (
     <div className='arrow-left'>
-      <Icon type="left" style={{ fontSize: '16px', color: '#fff', padding: '0px 10px 0px 0px' }} />
+      <Icon type="left" className='arrow' />
     </div>
   );
 }
@@ -96,13 +96,24 @@ export default class SiderTree extends Component<
             switcherIcon={<Icon type="down" />
             }
           >
-            <TreeNode icon={<Icon type="smile-o" />} title="parent 1" key="0-0">
-              <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-0" />
-              <TreeNode
-                icon={({ selected }) => <Icon type={selected ? 'frown' : 'frown-o'} />}
-                title="leaf"
-                key="0-0-1"
-              />
+            <TreeNode icon={<Icon type="file-text" />} title="parent 1" key="0-0">
+              <TreeNode icon={<Icon type="branches" />} title="leaf" key="0-0-0" />
+              <TreeNode icon={<Icon type="branches" />} title="leaf" key="0-0-1" />
+              <TreeNode icon={<Icon type="solution" />} title="leaf" key="0-0-2" />
+              <TreeNode icon={<Icon type="solution" />} title="leaf" key="0-0-3" />
+              <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-4" />
+              <TreeNode icon={<Icon type="solution" />} title="leaf" key="0-0-5" />
+              <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-6" />
+              <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-7" />
+              <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-8" />
+              <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-9" />
+              <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-10" />
+              <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-11" >
+                <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-11-1" />
+                <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-11-2" />
+                <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-11-3" />
+                <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-11-4" />
+              </TreeNode>
             </TreeNode>
           </Tree>
           {renderArrowLeft({ title })}
