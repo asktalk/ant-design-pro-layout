@@ -45,10 +45,11 @@ const renderModuleSearch = (props: LeftTreeProps): React.ReactNode => {
   return (
     <div class="module-search">
       <span>
-        <span class="next-input next-medium">
-          <Icon type="search" style={{ fontSize: '20px', color: '#08c', padding: '0px 10px 0px 0px' }} /></span>
-        <input placeholder="文件名称/创建人" height="100%" autocomplete="off" value="" />
-        <Icon type="search" style={{ fontSize: '20px', color: '#08c', padding: '0px 10px 0px 0px' }} />
+        <span class="search-input">
+          <Icon type="search" style={{ fontSize: '20px', padding: '0px 10px 0px 0px' }} />
+          <input placeholder="文件名称/创建人" height="100%" autocomplete="off" value="" />
+        </span>
+        <Icon type="filter" className='btn-normal' style={{ fontSize: '20px', padding: '0px 10px 0px 0px' }} />
       </span>
     </div >);
 };

@@ -9,7 +9,7 @@
   position: relative;
   height: @layout-header-height;
   padding: 0;
-  background: @pro-header-bg;
+  // background: @pro-header-bg;
   box-shadow: @pro-header-box-shadow;
 
   &-logo {
@@ -20,6 +20,7 @@
     line-height: @layout-header-height;
     vertical-align: top;
     cursor: pointer;
+
     img {
       display: inline-block;
       width: 32px;
@@ -31,6 +32,7 @@
     .anticon {
       margin-right: 8px;
     }
+
     .ant-dropdown-menu-item {
       min-width: 160px;
     }
@@ -38,10 +40,11 @@
 
   &-trigger {
     height: @layout-header-height;
-    padding: ~'calc((@{layout-header-height} - 26px) / 2)' 24px;
+    padding:~'calc((@{layout-header-height} - 26px) / 2)'24px;
     font-size: 20px;
     cursor: pointer;
     transition: all 0.3s, padding 0s;
+
     &:hover {
       background: @pro-header-hover-bg;
     }
@@ -49,15 +52,19 @@
 
   .dark {
     height: @layout-header-height;
+
     .action {
       color: rgba(255, 255, 255, 0.85);
-      > i {
+
+      >i {
         color: rgba(255, 255, 255, 0.85);
       }
+
       &:hover,
       &.opened {
         background: @primary-color;
       }
+
       .ant-badge {
         color: rgba(255, 255, 255, 0.85);
       }
@@ -68,6 +75,7 @@
 
 //sf
 :global {
+
   //header 样式
   .ant-pro-global-header {
     height: 50px;

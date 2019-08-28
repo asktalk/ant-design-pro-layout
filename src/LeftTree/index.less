@@ -10,15 +10,16 @@
   position: relative;
   border-right: 4px solid rgb(0, 0, 0);
   width: 260px;
+
   // background-color: #1e202d;
   // color: white;
-  i{
+  i {
     margin: 0 5px;
     cursor: pointer;
     padding: 0 0 !important;
   }
 
-  input{
+  input {
     padding: 0 4px;
     // font-size: 12px;
     // border-radius: 2px;
@@ -64,6 +65,44 @@
   height: 42px;
   // line-height: 28px;
   padding: 5px 10px 5px 10px;
+
+  .search-input {
+    vertical-align: middle;
+    display: inline-table;
+    border-collapse: separate;
+    font-size: 0;
+    width: 200px;
+    border-spacing: 0;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    border: 1px solid #3a3d51;
+
+    input {
+      width: 100%;
+      border: none;
+      outline: 0;
+      padding: 0;
+      margin: 0;
+      font-weight: 400;
+      vertical-align: middle;
+      background-color: transparent;
+      color: #fff;
+    }
+
+    .btn-normal {
+      border-radius: 0;
+      padding: 0;
+      height: 16px;
+      line-height: 16px;
+      font-size: 12px;
+      border-width: 0;
+      color: #08c;
+
+      // font-size: 20px;
+      padding: 0px 10px 0px 0px;
+
+    }
+  }
 }
 
 .arrow-left {
@@ -84,9 +123,9 @@
   font-size: 12px;
   border-radius: 20px 0 0 20px;
   cursor: pointer;
-  padding:0 0;
+  padding: 0 0;
 
-  .arrow{
+  .arrow {
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
