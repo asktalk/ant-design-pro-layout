@@ -149,4 +149,5 @@ export default {
   manifest: {
     basePath: '/',
   },
+  // theme: "~/theme-dark.js",
 } as IConfig;
