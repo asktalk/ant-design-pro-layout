@@ -25,6 +25,7 @@ import Footer from './Footer';
 import RouteContext from './RouteContext';
 import SiderMenu from './SiderMenu';
 import LeftTree from './LeftTree';
+import PropPane from './PropertyPane';
 import { SiderMenuProps } from './SiderMenu/SiderMenu';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import getMenuData from './utils/getMenuData';
@@ -89,6 +90,7 @@ const headerRender = (props: BasicLayoutProps): React.ReactNode => {
   return <Header {...props} />;
 };
 
+
 const footerRender = (props: BasicLayoutProps): React.ReactNode => {
   if (props.footerRender === false) {
     return null;
@@ -122,6 +124,10 @@ const renderLeftTree = (props: BasicLayoutProps): React.ReactNode => {
   }
   return <LeftTree {...props} />;
 };
+
+const propPaneRender = (props: BasicLayoutProps): React.ReactNode => {
+  return <PropPane></PropPane>
+}
 
 const defaultPageTitleRender = (
   pageProps: GetPageTitleProps,
@@ -318,28 +324,38 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                       // minHeight: '100vh',
                     }}
                   >
-                    <Content
-                      className="ant-pro-basicLayout-content"
-                      style={!fixedHeader ? { paddingTop: 0 } : {}}
-                    >
-                      <RouteContext.Provider
-                        value={{
-                          breadcrumb: breadcrumbProps,
-                          ...props,
-                          menuData,
-                          isMobile,
-                          collapsed,
-                          title: pageTitle.split('-')[0].trim(),
-                        }}
-                      >
-                        {children}
-                      </RouteContext.Provider>
-                    </Content>
-                    {footerRender({
+                    <div className="workspace">
+                      <div className="workspace-tab"></div>
+                      <div className="workspace-panel">
+                        <Content
+                          className="ant-pro-basicLayout-content"
+                          style={!fixedHeader ? { paddingTop: 0 } : {}}
+                        >
+                          <RouteContext.Provider
+                            value={{
+                              breadcrumb: breadcrumbProps,
+                              ...props,
+                              menuData,
+                              isMobile,
+                              collapsed,
+                              title: pageTitle.split('-')[0].trim(),
+                            }}
+                          >
+                            {children}
+                          </RouteContext.Provider>
+                        </Content>
+
+                        {/* 属性面板 */}
+                        {propPaneRender({
+                          ...defaultProps
+                        })}
+                      </div>
+                    </div>
+                    {/* {footerRender({
                       isMobile,
                       collapsed,
                       ...defaultProps,
-                    })}
+                    })} */}
                   </Layout>
                 </div>
               </div>

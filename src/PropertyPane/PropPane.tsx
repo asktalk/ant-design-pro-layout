@@ -23,7 +23,7 @@ interface PropPaneState {
   flatMenuKeysLen?: number;
 }
 
-export default class SiderTree extends Component<
+export default class PropPane extends Component<
   PropPaneProps,
   PropPaneState
   > {
@@ -33,9 +33,9 @@ export default class SiderTree extends Component<
   };
 
 
-  componentDidMount(): void {
-    firstMount = false;
-  }
+  // componentDidMount(): void {
+  //   firstMount = false;
+  // }
 
 
   render(): React.ReactNode {
@@ -56,8 +56,9 @@ export default class SiderTree extends Component<
 
 
     return (
-      <>
-      </>
+      <div className="propPane">
+
+      </div>
     );
   }
 }
